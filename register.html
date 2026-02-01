@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+  <style>
+    body { background: linear-gradient(135deg, #000000 0%, #4b0082 100%); min-height: 100vh; display: flex; align-items: center; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .login-card { animation: slideUp 0.5s ease-out; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); background-color: #1c1c1c; color: #fff; }
+    .card-header { background: linear-gradient(135deg, #4b0082, #6a0dad); color: white; border-radius: 15px 15px 0 0 !important; }
+    .form-control { border-radius: 8px; padding: 12px; border: 2px solid #333; background-color: #000; color: #fff; transition: all 0.3s ease; }
+    .form-control:focus { border-color: #4b0082; box-shadow: 0 0 0 0.2rem rgba(75,0,130,0.3); }
+    .btn-primary { background: linear-gradient(135deg, #4b0082, #6a0dad); border: none; border-radius: 8px; padding: 12px; font-weight: 600; transition: all 0.3s ease; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(75,0,130,0.4); }
+    .input-group-text { background-color: #000; border: 2px solid #333; border-right: none; color: #fff; }
+    .input-group .form-control { border-left: none; }
+    .password-toggle { cursor: pointer; color: #ccc; }
+    .password-toggle:hover { color: #6a0dad; }
+    @keyframes slideUp { from { opacity:0; transform: translateY(30px); } to { opacity:1; transform: translateY(0); } }
+    .logo { width:60px; height:60px; background: linear-gradient(135deg, #4b0082, #6a0dad); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 20px; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{transform:scale(1);} 50%{transform:scale(1.05);} }
+    .register-link { color:#6a0dad; text-decoration:none; font-weight:500; transition:color 0.3s ease; }
+    .register-link:hover { color:#4b0082; text-decoration:underline; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-5 col-lg-4">
+      <div class="logo"><i class="bi bi-shield-lock text-white fs-4"></i></div>
+
+      <div class="card login-card border-0">
+        <div class="card-header border-0 py-3 text-center"><h5 class="mb-0">Create Account</h5></div>
+        <div class="card-body p-4">
+          <div id="alert-container"></div>
+          <form id="registerForm">
+            <div class="mb-3"><label class="form-label">Name</label><input type="text" id="name" class="form-control" placeholder="Full Name" required></div>
+            <div class="mb-3"><label class="form-label">Email</label><input type="email" id="email" class="form-control" placeholder="Email" required></div>
+            <div class="mb-3"><label class="form-label">Password</label><div class="input-group"><input type="password" id="password" class="form-control" placeholder="Password" required><span class="input-group-text password-toggle"><i class="bi bi-eye"></i></span></div></div>
+            <div class="mb-4"><label class="form-label">Confirm Password</label><div class="input-group"><input type="password" id="password_confirmation" class="form-control" placeholder="Confirm Password" required><span class="input-group-text password-toggle"><i class="bi bi-eye"></i></span></div></div>
+
+            <button type="submit" class="btn btn-primary w-100 mb-3"><i class="bi bi-person-plus me-2"></i>Register</button>
+            <div class="text-center"><p class="mb-0">Already have an account? <a href="login.html" class="register-link">Login</a></p></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+  $('.password-toggle').on('click', function(){
+    const input = $(this).parent().find('input');
+    const icon = $(this).find('i');
+    if(input.attr('type')==='password'){input.attr('type','text'); icon.removeClass('bi-eye').addClass('bi-eye-slash');} 
+    else {input.attr('type','password'); icon.removeClass('bi-eye-slash').addClass('bi-eye');}
+  });
+</script>
+
+</body>
+</html>
